@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Viajes Ejecutivos | Grupo Escobar</title>
+    <title>Productos | Grupo Escobar</title>
 
     <style>
         body {
@@ -20,6 +20,10 @@
             border-bottom: 2px solid #d4af37;
         }
         
+        header img {
+            height: 60px;
+        }
+        
         h1 {
             color: #d4af37;
         }
@@ -28,9 +32,17 @@
             padding: 40px 20px;
         }
         
+        .card {
+            background: #1c3d2b;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px auto;
+            max-width: 400px;
+        }
+        
         .btn {
             display: inline-block;
-            margin-top: 15px;
+            margin: 10px;
             padding: 10px 20px;
             background: #d4af37;
             color: black;
@@ -43,21 +55,20 @@
 <body>
 
     <header>
-        <h1>Productos</h1>
+        <img src="img/gpoescobar.png">
+        <h1>Productos de Limpieza</h1>
     </header>
 
     <div class="container">
-        <p>Servicio profesional de transporte seguro, cómodo y puntual.</p>
 
-        <ul style="list-style:none;">
-            <li>✔ Desinfectantes</li>
-            <li>✔ Jabones</li>
-            <li>✔ Insumos</li>
-        </ul>
+        <div class="card">✔ Desinfectantes</div>
+        <div class="card">✔ Jabones industriales</div>
+        <div class="card">✔ Insumos de limpieza</div>
 
         <a href="docs/precios.xlsx" download class="btn">Descargar precios</a><br>
-
+        <a href="https://wa.me/5213348851321?text=Hola,%20quiero%20comprar%20productos" class="btn">Cotizar</a><br>
         <a href="index.html" class="btn">⬅ Volver</a>
+
     </div>
 
 </body>

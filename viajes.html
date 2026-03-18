@@ -9,7 +9,7 @@
     <style>
         body {
             margin: 0;
-            font-family: Segoe UI;
+            font-family: Segoe UI, Tahoma;
             background: #0f1c1b;
             color: white;
             text-align: center;
@@ -20,6 +20,10 @@
             border-bottom: 2px solid #d4af37;
         }
         
+        header img {
+            height: 60px;
+        }
+        
         h1 {
             color: #d4af37;
         }
@@ -28,9 +32,17 @@
             padding: 40px 20px;
         }
         
+        .card {
+            background: #1c3d2b;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px auto;
+            max-width: 400px;
+        }
+        
         .btn {
             display: inline-block;
-            margin-top: 15px;
+            margin: 10px;
             padding: 10px 20px;
             background: #d4af37;
             color: black;
@@ -43,21 +55,20 @@
 <body>
 
     <header>
+        <img src="img/gpoescobar.png" alt="logo">
         <h1>Viajes Ejecutivos</h1>
     </header>
 
     <div class="container">
-        <p>Servicio profesional de transporte seguro, cómodo y puntual.</p>
 
-        <ul style="list-style:none;">
-            <li>✔ Traslados al aeropuerto</li>
-            <li>✔ Viajes empresariales</li>
-            <li>✔ Servicio privado</li>
-        </ul>
+        <div class="card">✔ Traslados al aeropuerto</div>
+        <div class="card">✔ Viajes empresariales</div>
+        <div class="card">✔ Servicio privado</div>
 
         <a href="docs/precios.xlsx" download class="btn">Descargar precios</a><br>
-
+        <a href="https://wa.me/5213348851321?text=Hola,%20quiero%20un%20servicio%20de%20viajes" class="btn">Cotizar</a><br>
         <a href="index.html" class="btn">⬅ Volver</a>
+
     </div>
 
 </body>
