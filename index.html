@@ -5,12 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grupo Escobar Multiservicios</title>
+
     <style>
         body {
             margin: 0;
             font-family: Segoe UI, Tahoma;
             background: #0f1c1b;
-            color: #333
+            color: #333;
         }
         
         header {
@@ -21,11 +22,11 @@
             align-items: center;
             justify-content: center;
             gap: 15px;
-            border-bottom: 3px solid #d4af37
+            border-bottom: 3px solid #d4af37;
         }
         
         header img {
-            height: 70px
+            height: 70px;
         }
         
         nav {
@@ -33,38 +34,38 @@
             padding: 10px;
             text-align: center;
             position: sticky;
-            top: 0
+            top: 0;
         }
         
         nav a {
             color: #d4af37;
             margin: 0 15px;
             text-decoration: none;
-            font-weight: bold
+            font-weight: bold;
         }
         
         section {
-            padding: 60px 20px
+            padding: 60px 20px;
         }
         
         .hero {
             text-align: center;
             background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)), url('img/hero.jpg') center/cover;
-            color: #fff
+            color: #fff;
         }
         
         .hero h1 {
-            color: #d4af37
+            color: #d4af37;
         }
         
         .services {
-            background: #f5f5f5
+            background: #f5f5f5;
         }
         
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px
+            gap: 20px;
         }
         
         .card {
@@ -73,12 +74,18 @@
             border-radius: 12px;
             text-align: center;
             cursor: pointer;
-            border-top: 4px solid #d4af37
+            border-top: 4px solid #d4af37;
+            transition: 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
         }
         
         .card img {
             width: 100%;
-            border-radius: 10px
+            border-radius: 10px;
         }
         
         .detalle {
@@ -86,18 +93,18 @@
             background: #fff;
             padding: 20px;
             margin-top: 20px;
-            border-radius: 10px
+            border-radius: 10px;
         }
         
         .detalle.active {
-            display: block
+            display: block;
         }
         
         footer {
             background: #0f1c1b;
             color: #d4af37;
             text-align: center;
-            padding: 20px
+            padding: 20px;
         }
         
         .whatsapp {
@@ -108,7 +115,7 @@
             color: #fff;
             padding: 12px 18px;
             border-radius: 50px;
-            text-decoration: none
+            text-decoration: none;
         }
         
         .btn {
@@ -118,9 +125,10 @@
             background: #d4af37;
             color: #000;
             border-radius: 8px;
-            text-decoration: none
+            text-decoration: none;
         }
     </style>
+
     <script>
         function mostrarDetalle(id) {
             document.querySelectorAll('.detalle').forEach(d => d.classList.remove('active'));
@@ -132,28 +140,57 @@
 
 <body>
 
+    <!-- HEADER -->
     <header>
-        <img src="img/gpoescobar.png">
+        <img src="img/gpoescobar.png" alt="Logo">
         <div>
-            <h1 style="margin:0;color:#d4af37">Grupo Escobar</h1>
-            <p style="margin:0">Multiservicios</p>
+            <h1 style="margin:0;color:#d4af37;">Grupo Escobar</h1>
+            <p style="margin:0;">Multiservicios</p>
         </div>
     </header>
 
+    <!-- NAV -->
     <nav>
         <a href="#inicio">Inicio</a>
         <a href="#servicios">Servicios</a>
         <a href="#contacto">Contacto</a>
     </nav>
 
+    <!-- HERO -->
     <section id="inicio" class="hero">
         <h1>Soluciones profesionales en un solo lugar</h1>
         <p>Confianza, calidad y atención inmediata para tu empresa o negocio.</p>
-        <a href="https://wa.me/5213348851321" class="btn">Solicitar información</a>
+        <a href="https://wa.me/5213348851321?text=Hola,%20quiero%20cotizar%20sus%20servicios" class="btn">
+            Solicitar información
+        </a>
     </section>
 
+    <!-- POR QUE ELEGIRNOS -->
+    <section style="background:#fff;text-align:center;">
+        <h2>¿Por qué elegirnos?</h2>
+
+        <div class="grid">
+            <div class="card">
+                <h3>✔ Atención inmediata</h3>
+                <p>Respondemos rápido y damos seguimiento.</p>
+            </div>
+
+            <div class="card">
+                <h3>✔ Personal capacitado</h3>
+                <p>Profesionales en cada área.</p>
+            </div>
+
+            <div class="card">
+                <h3>✔ Servicio confiable</h3>
+                <p>Cumplimos en tiempo y forma.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICIOS -->
     <section id="servicios" class="services">
-        <h2 style="text-align:center;color:#1c3d2b">Nuestros Servicios</h2>
+        <h2 style="text-align:center;color:#1c3d2b;">Nuestros Servicios</h2>
+
         <div class="grid">
 
             <div class="card" onclick="mostrarDetalle('viajes')">
@@ -163,7 +200,7 @@
             </div>
 
             <div class="card" onclick="mostrarDetalle('limpieza')">
-                <img src="img/Limpieza.jpeg">
+                <img src="img/limpieza.jpeg">
                 <h3>Limpieza</h3>
                 <p>Espacios impecables</p>
             </div>
@@ -182,6 +219,7 @@
 
         </div>
 
+        <!-- DETALLE -->
         <div id="detalle">
 
             <div id="viajes" class="detalle">
@@ -227,21 +265,26 @@
         </div>
     </section>
 
-    <section id="contacto" style="background:#fff;text-align:center">
+    <!-- CONTACTO -->
+    <section id="contacto" style="background:#fff;text-align:center;">
         <h2>Contacto</h2>
         <p>📞 33 4885 1321</p>
         <p>📧 grupoescobarmultiservicios@gmail.com</p>
         <p>📍 León, Guanajuato</p>
 
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.2471837145863!2d-101.56076792574278!3d21.06278748661093!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842b97c5869e58ed%3A0xc58cb2977807ee80!2sH%C3%A9roes%20del%20Rosario%20107-interior%204%2C%2037544%20H%C3%A9roes%20de%20Le%C3%B3n%2C%20Gto.!5e0!3m2!1ses-419!2smx!4v1773844654380!5m2!1ses-419!2smx"
-            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!..." width="100%" height="350" style="border:0;" allowfullscreen loading="lazy">
+        </iframe>
     </section>
 
+    <!-- FOOTER -->
     <footer>
         <p>© 2026 Grupo Escobar Multiservicios</p>
     </footer>
 
-    <a href="https://wa.me/5213348851321" class="whatsapp">💬 Cotizar</a>
+    <!-- WHATSAPP -->
+    <a href="https://wa.me/5213348851321?text=Hola,%20quiero%20cotizar%20sus%20servicios" class="whatsapp">
+        💬 Cotizar
+    </a>
 
 </body>
 
