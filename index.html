@@ -12,7 +12,47 @@
             font-family: Segoe UI, Tahoma;
             background: #0f1c1b;
             color: #333;
+            scroll-behavior: smooth;
         }
+        /* ===== LOADER ===== */
+        
+        #loader {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: #0f1c1b;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: #d4af37;
+            z-index: 9999;
+            animation: fadeOut 1s ease 2s forwards;
+        }
+        
+        #loader img {
+            width: 120px;
+            margin-bottom: 10px;
+            animation: zoom 2s infinite;
+        }
+        
+        @keyframes fadeOut {
+            to {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+        
+        @keyframes zoom {
+            0%,
+            100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+        /* ===== HEADER ===== */
         
         header {
             background: #0f1c1b;
@@ -28,6 +68,7 @@
         header img {
             height: 70px;
         }
+        /* ===== NAV ===== */
         
         nav {
             background: #1c3d2b;
@@ -43,10 +84,24 @@
             text-decoration: none;
             font-weight: bold;
         }
+        /* ===== SECCIONES ===== */
         
         section {
             padding: 60px 20px;
+            animation: fadeIn 1s ease;
         }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* ===== HERO ===== */
         
         .hero {
             text-align: center;
@@ -57,6 +112,7 @@
         .hero h1 {
             color: #d4af37;
         }
+        /* ===== SERVICIOS ===== */
         
         .services {
             background: #f5f5f5;
@@ -75,48 +131,34 @@
             text-align: center;
             cursor: pointer;
             border-top: 4px solid #d4af37;
-            transition: 0.3s;
+            transition: 0.4s;
         }
         
         .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, .2);
         }
         
         .card img {
             width: 100%;
             border-radius: 10px;
         }
+        /* ===== DETALLE DESLIZANTE ===== */
         
         .detalle {
-            display: none;
+            max-height: 0;
+            overflow: hidden;
             background: #fff;
-            padding: 20px;
-            margin-top: 20px;
+            padding: 0 20px;
             border-radius: 10px;
+            transition: all 0.7s ease;
         }
         
         .detalle.active {
-            display: block;
-        }
-        
-        footer {
-            background: #0f1c1b;
-            color: #d4af37;
-            text-align: center;
+            max-height: 500px;
             padding: 20px;
         }
-        
-        .whatsapp {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #25D366;
-            color: #fff;
-            padding: 12px 18px;
-            border-radius: 50px;
-            text-decoration: none;
-        }
+        /* ===== BOTONES ===== */
         
         .btn {
             display: inline-block;
@@ -127,22 +169,61 @@
             border-radius: 8px;
             text-decoration: none;
         }
+        /* ===== FOOTER ===== */
+        
+        footer {
+            background: #0f1c1b;
+            color: #d4af37;
+            text-align: center;
+            padding: 20px;
+        }
+        /* ===== WHATSAPP ===== */
+        
+        .whatsapp {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25D366;
+            color: #fff;
+            padding: 12px 18px;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, .3);
+        }
     </style>
 
     <script>
+        window.onload = function() {
+            setTimeout(() => {
+                document.getElementById('loader').style.display = 'none';
+            }, 2500);
+        }
+
         function mostrarDetalle(id) {
             document.querySelectorAll('.detalle').forEach(d => d.classList.remove('active'));
-            document.getElementById(id).classList.add('active');
-            window.location = '#detalle';
+
+            let elemento = document.getElementById(id);
+            elemento.classList.add('active');
+
+            elemento.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
         }
     </script>
 </head>
 
 <body>
 
+    <!-- LOADER -->
+    <div id="loader">
+        <img src="img/gpoescobar.png">
+        <p>Cargando...</p>
+    </div>
+
     <!-- HEADER -->
     <header>
-        <img src="img/gpoescobar.png" alt="Logo">
+        <img src="img/gpoescobar.png">
         <div>
             <h1 style="margin:0;color:#d4af37;">Grupo Escobar</h1>
             <p style="margin:0;">Multiservicios</p>
@@ -156,33 +237,33 @@
         <a href="#contacto">Contacto</a>
     </nav>
 
-    <!-- HERO -->
+    <!-- INICIO -->
     <section id="inicio" class="hero">
-        <h1>Soluciones profesionales en un solo lugar</h1>
-        <p>Confianza, calidad y atención inmediata para tu empresa o negocio.</p>
-        <a href="https://wa.me/5213348851321?text=Hola,%20quiero%20cotizar%20sus%20servicios" class="btn">
+        <h1>Impulsamos tu negocio con soluciones profesionales</h1>
+        <p>Confianza, calidad y atención inmediata</p>
+        <a href="https://wa.me/5213348851321?text=Hola,%20quiero%20cotizar" class="btn">
             Solicitar información
         </a>
     </section>
 
-    <!-- POR QUE ELEGIRNOS -->
+    <!-- CONFIANZA -->
     <section style="background:#fff;text-align:center;">
         <h2>¿Por qué elegirnos?</h2>
 
         <div class="grid">
             <div class="card">
                 <h3>✔ Atención inmediata</h3>
-                <p>Respondemos rápido y damos seguimiento.</p>
+                <p>Respuesta rápida</p>
             </div>
 
             <div class="card">
                 <h3>✔ Personal capacitado</h3>
-                <p>Profesionales en cada área.</p>
+                <p>Profesionales</p>
             </div>
 
             <div class="card">
                 <h3>✔ Servicio confiable</h3>
-                <p>Cumplimos en tiempo y forma.</p>
+                <p>Cumplimos</p>
             </div>
         </div>
     </section>
@@ -196,70 +277,66 @@
             <div class="card" onclick="mostrarDetalle('viajes')">
                 <img src="img/viajes.jpeg">
                 <h3>Viajes Ejecutivos</h3>
-                <p>Transporte seguro y puntual</p>
             </div>
 
             <div class="card" onclick="mostrarDetalle('limpieza')">
                 <img src="img/limpieza.jpeg">
                 <h3>Limpieza</h3>
-                <p>Espacios impecables</p>
             </div>
 
             <div class="card" onclick="mostrarDetalle('productos')">
                 <img src="img/productos.jpeg">
                 <h3>Productos</h3>
-                <p>Calidad profesional</p>
             </div>
 
             <div class="card" onclick="mostrarDetalle('soporte')">
                 <img src="img/soporte.jpeg">
                 <h3>Soporte Técnico</h3>
-                <p>Soluciones rápidas</p>
             </div>
 
         </div>
 
-        <!-- DETALLE -->
+        <!-- DETALLES -->
         <div id="detalle">
 
             <div id="viajes" class="detalle">
                 <h3>Viajes Ejecutivos</h3>
                 <ul>
-                    <li>Traslados aeropuerto</li>
-                    <li>Viajes empresariales</li>
-                    <li>Servicio privado</li>
+                    <li>Aeropuerto</li>
+                    <li>Empresarial</li>
+                    <li>Privado</li>
                 </ul>
-                <a href="docs/precios.xlsx" download class="btn">Descargar precios</a>
+                <a href="docs/precios.xlsx" download class="btn">Precios</a>
             </div>
 
             <div id="limpieza" class="detalle">
                 <h3>Limpieza</h3>
                 <ul>
-                    <li>Limpieza de oficinas</li>
-                    <li>Limpieza profunda</li>
-                    <li>Mantenimiento continuo</li>
+                    <li>Oficinas</li>
+                    <li>Profunda</li>
+                    <li>Mantenimiento</li>
                 </ul>
-                <a href="docs/precios.xlsx" download class="btn">Descargar precios</a>
+                <a href="docs/precios.xlsx" download class="btn">Precios</a>
             </div>
 
             <div id="productos" class="detalle">
-                <h3>Productos de Limpieza</h3>
+                <h3>Productos</h3>
                 <ul>
                     <li>Desinfectantes</li>
-                    <li>Jabones industriales</li>
+                    <li>Jabones</li>
                     <li>Insumos</li>
                 </ul>
-                <a href="docs/precios.xlsx" download class="btn">Descargar precios</a>
+                <a href="docs/precios.xlsx" download class="btn">Precios</a>
             </div>
 
             <div id="soporte" class="detalle">
                 <h3>Soporte Técnico</h3>
                 <ul>
-                    <li>Mantenimiento de computadoras</li>
+                    <li>Mantenimiento</li>
                     <li>Reparación</li>
-                    <li>Instalación de software</li>
+                    <li>Software</li>
                 </ul>
-                <a href="docs/precios.xlsx" download class="btn">Descargar precios</a>
+                <a href="docs/precios.xlsx" download class="btn">Precios</a>
             </div>
 
         </div>
@@ -272,8 +349,7 @@
         <p>📧 grupoescobarmultiservicios@gmail.com</p>
         <p>📍 León, Guanajuato</p>
 
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.247308511221!2d-101.55819299999999!3d21.0627825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842b97c5869e58ed%3A0xc58cb2977807ee80!2sH%C3%A9roes%20del%20Rosario%20107-interior%204%2C%2037544%20H%C3%A9roes%20de%20Le%C3%B3n%2C%20Gto.!5e0!3m2!1ses-419!2smx!4v1773846912141!5m2!1ses-419!2smx"
-            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe src="https://www.google.com/maps?q=León,Guanajuato&output=embed" width="100%" height="300"></iframe>
     </section>
 
     <!-- FOOTER -->
@@ -282,7 +358,7 @@
     </footer>
 
     <!-- WHATSAPP -->
-    <a href="https://wa.me/5213348851321?text=Hola,%20quiero%20cotizar%20sus%20servicios" class="whatsapp">
+    <a href="https://wa.me/5213348851321?text=Hola,%20quiero%20cotizar" class="whatsapp">
         💬 Cotizar
     </a>
 
