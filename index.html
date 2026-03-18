@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grupo Escobar Multiservicios</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Segoe UI, Tahoma;
+            background: #0f1c1b;
+            color: #333
+        }
+        
+        header {
+            background: #0f1c1b;
+            color: #fff;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            border-bottom: 3px solid #d4af37
+        }
+        
+        header img {
+            height: 70px
+        }
+        
+        nav {
+            background: #1c3d2b;
+            padding: 10px;
+            text-align: center;
+            position: sticky;
+            top: 0
+        }
+        
+        nav a {
+            color: #d4af37;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold
+        }
+        
+        section {
+            padding: 60px 20px
+        }
+        
+        .hero {
+            text-align: center;
+            background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)), url('img/hero.jpg') center/cover;
+            color: #fff
+        }
+        
+        .hero h1 {
+            color: #d4af37
+        }
+        
+        .services {
+            background: #f5f5f5
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px
+        }
+        
+        .card {
+            background: #fff;
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+            cursor: pointer;
+            border-top: 4px solid #d4af37
+        }
+        
+        .card img {
+            width: 100%;
+            border-radius: 10px
+        }
+        
+        .detalle {
+            display: none;
+            background: #fff;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 10px
+        }
+        
+        .detalle.active {
+            display: block
+        }
+        
+        footer {
+            background: #0f1c1b;
+            color: #d4af37;
+            text-align: center;
+            padding: 20px
+        }
+        
+        .whatsapp {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25D366;
+            color: #fff;
+            padding: 12px 18px;
+            border-radius: 50px;
+            text-decoration: none
+        }
+        
+        .btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 15px;
+            background: #d4af37;
+            color: #000;
+            border-radius: 8px;
+            text-decoration: none
+        }
+    </style>
+    <script>
+        function mostrarDetalle(id) {
+            document.querySelectorAll('.detalle').forEach(d => d.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            window.location = '#detalle';
+        }
+    </script>
+</head>
+
+<body>
+
+    <header>
+        <img src="img/gpoescobar.png">
+        <div>
+            <h1 style="margin:0;color:#d4af37">Grupo Escobar</h1>
+            <p style="margin:0">Multiservicios</p>
+        </div>
+    </header>
+
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+
+    <section id="inicio" class="hero">
+        <h1>Soluciones profesionales en un solo lugar</h1>
+        <p>Confianza, calidad y atención inmediata para tu empresa o negocio.</p>
+        <a href="https://wa.me/5213348851321" class="btn">Solicitar información</a>
+    </section>
+
+    <section id="servicios" class="services">
+        <h2 style="text-align:center;color:#1c3d2b">Nuestros Servicios</h2>
+        <div class="grid">
+
+            <div class="card" onclick="mostrarDetalle('viajes')">
+                <img src="img/viajes.jpeg">
+                <h3>Viajes Ejecutivos</h3>
+                <p>Transporte seguro y puntual</p>
+            </div>
+
+            <div class="card" onclick="mostrarDetalle('limpieza')">
+                <img src="img/Limpieza.jpeg">
+                <h3>Limpieza</h3>
+                <p>Espacios impecables</p>
+            </div>
+
+            <div class="card" onclick="mostrarDetalle('productos')">
+                <img src="img/productos.jpeg">
+                <h3>Productos</h3>
+                <p>Calidad profesional</p>
+            </div>
+
+            <div class="card" onclick="mostrarDetalle('soporte')">
+                <img src="img/soporte.jpeg">
+                <h3>Soporte Técnico</h3>
+                <p>Soluciones rápidas</p>
+            </div>
+
+        </div>
+
+        <div id="detalle">
+
+            <div id="viajes" class="detalle">
+                <h3>Viajes Ejecutivos</h3>
+                <ul>
+                    <li>Traslados aeropuerto</li>
+                    <li>Viajes empresariales</li>
+                    <li>Servicio privado</li>
+                </ul>
+                <a href="docs/precios.xlsx" download class="btn">Descargar precios</a>
+            </div>
+
+            <div id="limpieza" class="detalle">
+                <h3>Limpieza</h3>
+                <ul>
+                    <li>Limpieza de oficinas</li>
+                    <li>Limpieza profunda</li>
+                    <li>Mantenimiento continuo</li>
+                </ul>
+                <a href="docs/precios.xlsx" download class="btn">Descargar precios</a>
+            </div>
+
+            <div id="productos" class="detalle">
+                <h3>Productos de Limpieza</h3>
+                <ul>
+                    <li>Desinfectantes</li>
+                    <li>Jabones industriales</li>
+                    <li>Insumos</li>
+                </ul>
+                <a href="docs/precios.xlsx" download class="btn">Descargar precios</a>
+            </div>
+
+            <div id="soporte" class="detalle">
+                <h3>Soporte Técnico</h3>
+                <ul>
+                    <li>Mantenimiento de computadoras</li>
+                    <li>Reparación</li>
+                    <li>Instalación de software</li>
+                </ul>
+                <a href="docs/precios.xlsx" download class="btn">Descargar precios</a>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contacto" style="background:#fff;text-align:center">
+        <h2>Contacto</h2>
+        <p>📞 33 4885 1321</p>
+        <p>📧 grupoescobarmultiservicios@gmail.com</p>
+        <p>📍 León, Guanajuato</p>
+
+        <iframe src="https://www.google.com/maps?q=Xp5Pu2PLMw8AtA5e8&output=embed" width="100%" height="300"></iframe>
+    </section>
+
+    <footer>
+        <p>© 2026 Grupo Escobar Multiservicios</p>
+    </footer>
+
+    <a href="https://wa.me/5213348851321" class="whatsapp">💬 Cotizar</a>
+
+</body>
+
+</html>
