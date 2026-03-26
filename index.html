@@ -14,44 +14,7 @@
             color: #333;
             scroll-behavior: smooth;
         }
-        /* LOADER */
-        
-        #loader {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            background: #0f1c1b;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            color: #d4af37;
-            z-index: 9999;
-            animation: fadeOut 1s ease 2s forwards;
-        }
-        
-        #loader img {
-            width: 120px;
-            margin-bottom: 10px;
-            animation: zoom 2s infinite;
-        }
-        
-        @keyframes fadeOut {
-            to {
-                opacity: 0;
-                visibility: hidden;
-            }
-        }
-        
-        @keyframes zoom {
-            0%,
-            100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.1);
-            }
-        }
+        /* HEADER */
         
         header {
             background: #0f1c1b;
@@ -67,6 +30,7 @@
         header img {
             height: 70px;
         }
+        /* NAV */
         
         nav {
             background: #1c3d2b;
@@ -82,10 +46,12 @@
             text-decoration: none;
             font-weight: bold;
         }
+        /* SECCIONES */
         
         section {
-            padding: 60px 20px;
+            padding: 80px 20px;
         }
+        /* HERO */
         
         .hero {
             text-align: center;
@@ -96,45 +62,47 @@
         .hero h1 {
             color: #d4af37;
         }
-        
-        .services {
-            background: #f5f5f5;
-        }
+        /* GRID */
         
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
         }
+        /* CARDS */
         
         .card {
             background: #fff;
             padding: 15px;
             border-radius: 12px;
             text-align: center;
-            cursor: pointer;
             border-top: 4px solid #d4af37;
-            transition: 0.4s;
             text-decoration: none;
             color: inherit;
+            transition: .4s;
         }
         
         .card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 30px rgba(0, 0, 0, .2);
         }
+        /* BOTONES */
         
-        .card img {
-            width: 100%;
-            border-radius: 10px;
+        .btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 12px 18px;
+            background: #d4af37;
+            color: #000;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: .3s;
         }
         
-        footer {
-            background: #0f1c1b;
-            color: #d4af37;
-            text-align: center;
-            padding: 20px;
+        .btn:hover {
+            transform: scale(1.05);
         }
+        /* WHATSAPP */
         
         .whatsapp {
             position: fixed;
@@ -142,39 +110,27 @@
             right: 20px;
             background: #25D366;
             color: #fff;
-            padding: 12px 18px;
+            padding: 14px 22px;
             border-radius: 50px;
+            font-weight: bold;
             text-decoration: none;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, .3);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, .4);
         }
+        /* FOOTER */
         
-        .btn {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 10px 15px;
-            background: #d4af37;
-            color: #000;
-            border-radius: 8px;
-            text-decoration: none;
+        footer {
+            background: #0f1c1b;
+            color: #d4af37;
+            text-align: center;
+            padding: 20px;
         }
     </style>
 
-    <script>
-        window.onload = function() {
-            setTimeout(() => {
-                document.getElementById('loader').style.display = 'none';
-            }, 2500);
-        }
-    </script>
 </head>
 
 <body>
 
-    <div id="loader">
-        <img src="img/gpoescobar.png">
-        <p>Cargando...</p>
-    </div>
-
+    <!-- HEADER -->
     <header>
         <img src="img/gpoescobar.png">
         <div>
@@ -183,31 +139,47 @@
         </div>
     </header>
 
+    <!-- NAV -->
     <nav>
         <a href="#inicio">Inicio</a>
         <a href="#servicios">Servicios</a>
         <a href="#contacto">Contacto</a>
     </nav>
 
+    <!-- HERO -->
     <section id="inicio" class="hero">
-        <h1>Impulsamos tu negocio con soluciones profesionales</h1>
-        <p>Confianza, calidad y atención inmediata</p>
+        <h1>Soluciones profesionales para tu negocio</h1>
+
+        <h2 style="color:#d4af37;">
+            Atención inmediata • Servicio confiable • Resultados garantizados
+        </h2>
+
+        <p>Especialistas en limpieza, transporte ejecutivo y soporte técnico en León, Guanajuato.</p>
+
+        <p style="color:#d4af37;">
+            Servicio en León, Guanajuato y alrededores
+        </p>
+
         <a href="https://wa.me/5213348851321?text=Hola,%20quiero%20cotizar" class="btn">
-            Solicitar información
-        </a>
+Cotizar ahora
+</a>
     </section>
 
+    <!-- POR QUÉ ELEGIRNOS -->
     <section style="background:#fff;text-align:center;">
         <h2>¿Por qué elegirnos?</h2>
+
         <div class="grid">
             <div class="card">
                 <h3>✔ Atención inmediata</h3>
                 <p>Respuesta rápida</p>
             </div>
+
             <div class="card">
                 <h3>✔ Personal capacitado</h3>
                 <p>Profesionales</p>
             </div>
+
             <div class="card">
                 <h3>✔ Servicio confiable</h3>
                 <p>Cumplimos</p>
@@ -215,52 +187,77 @@
         </div>
     </section>
 
-    <section id="servicios" class="services">
+    <!-- TESTIMONIOS -->
+    <section style="background:#f5f5f5;text-align:center;">
+        <h2>Lo que dicen nuestros clientes</h2>
+
+        <div class="grid">
+            <div class="card">
+                <p>“Excelente servicio, muy puntuales y profesionales.”</p>
+            </div>
+
+            <div class="card">
+                <p>“Muy confiables, los recomiendo ampliamente.”</p>
+            </div>
+
+            <div class="card">
+                <p>“Atención rápida y trabajo de calidad.”</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section id="servicios" style="background:#f5f5f5;">
         <h2 style="text-align:center;color:#1c3d2b;">Nuestros Servicios</h2>
 
         <div class="grid">
 
             <a href="viajes.html" class="card">
-                <img src="img/viajes.jpeg">
                 <h3>Viajes Ejecutivos</h3>
             </a>
 
             <a href="limpieza.html" class="card">
-                <img src="img/limpieza.jpeg">
                 <h3>Limpieza</h3>
             </a>
 
             <a href="productos.html" class="card">
-                <img src="img/productos.jpeg">
                 <h3>Productos</h3>
             </a>
 
             <a href="soporte.html" class="card">
-                <img src="img/soporte.jpeg">
                 <h3>Soporte Técnico</h3>
             </a>
 
         </div>
-
     </section>
 
+    <!-- CIERRE -->
+    <section style="text-align:center;background:#1c3d2b;color:white;">
+        <h2 style="color:#d4af37;">
+            Tu confianza es nuestro compromiso
+        </h2>
+        <p>Contáctanos hoy mismo y recibe atención inmediata</p>
+    </section>
+
+    <!-- CONTACTO -->
     <section id="contacto" style="background:#fff;text-align:center;">
         <h2>Contacto</h2>
         <p>📞 33 4885 1321</p>
         <p>📧 grupoescobarmultiservicios@gmail.com</p>
         <p>📍 León, Guanajuato</p>
 
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.247308511221!2d-101.55819299999999!3d21.0627825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842b97c5869e58ed%3A0xc58cb2977807ee80!2sH%C3%A9roes%20del%20Rosario%20107-interior%204%2C%2037544%20H%C3%A9roes%20de%20Le%C3%B3n%2C%20Gto.!5e0!3m2!1ses-419!2smx!4v1773851568605!5m2!1ses-419!2smx"
-            width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        <iframe src="https://www.google.com/maps?q=León,Guanajuato&output=embed" width="100%" height="300"></iframe>
     </section>
 
+    <!-- FOOTER -->
     <footer>
         <p>© 2026 Grupo Escobar Multiservicios</p>
     </footer>
 
+    <!-- WHATSAPP -->
     <a href="https://wa.me/5213348851321?text=Hola,%20quiero%20cotizar" class="whatsapp">
-        💬 Cotizar
-    </a>
+💬 Cotizar
+</a>
 
 </body>
 
