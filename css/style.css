@@ -1,14 +1,25 @@
-body {
+/* RESET */
+
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
     font-family: Segoe UI, Tahoma;
     background: #0f1c1b;
     color: #333;
     scroll-behavior: smooth;
 }
 
+
+/* CONTENEDOR */
+
 .container {
     max-width: 1100px;
     margin: auto;
+    padding: 0 15px;
 }
 
 
@@ -46,6 +57,11 @@ nav a {
     margin: 0 15px;
     text-decoration: none;
     font-weight: bold;
+    transition: .3s;
+}
+
+nav a:hover {
+    opacity: .7;
 }
 
 
@@ -62,6 +78,21 @@ section {
     text-align: center;
     background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)), url('../img/hero.jpg') center/cover;
     color: #fff;
+}
+
+.hero h1 {
+    color: #d4af37;
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.hero h2 {
+    margin-bottom: 15px;
+}
+
+.hero p {
+    max-width: 600px;
+    margin: 10px auto;
 }
 
 
@@ -90,15 +121,18 @@ section {
 }
 
 .card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-10px) scale(1.02);
     box-shadow: 0 20px 40px rgba(0, 0, 0, .2);
 }
+
+
+/* IMÁGENES */
 
 .card img {
     width: 100%;
     border-radius: 10px;
     margin-bottom: 10px;
-    transition: .5s;
+    transition: transform .5s ease;
 }
 
 .card:hover img {
@@ -116,6 +150,12 @@ section {
     color: #000;
     border-radius: 8px;
     text-decoration: none;
+    font-weight: bold;
+    transition: .3s;
+}
+
+.btn:hover {
+    transform: scale(1.05);
 }
 
 
@@ -129,15 +169,28 @@ section {
     color: #fff;
     padding: 14px 22px;
     border-radius: 50px;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .4);
 }
 
 
-/* SCROLL */
+/* FOOTER */
+
+footer {
+    background: #0f1c1b;
+    color: #d4af37;
+    text-align: center;
+    padding: 20px;
+}
+
+
+/* SCROLL REVEAL */
 
 .reveal {
     opacity: 0;
     transform: translateY(60px);
-    transition: 1s;
+    transition: all 1s ease;
 }
 
 .reveal.active {
@@ -148,11 +201,25 @@ section {
 
 /* RESPONSIVE */
 
-@media(max-width:768px) {
+@media (max-width:768px) {
     header {
         flex-direction: column;
+        text-align: center;
+    }
+    .hero h1 {
+        font-size: 28px;
+    }
+    .hero h2 {
+        font-size: 18px;
+    }
+    section {
+        padding: 60px 15px;
     }
     .grid {
         grid-template-columns: 1fr;
+    }
+    .whatsapp {
+        font-size: 14px;
+        padding: 12px 16px;
     }
 }
