@@ -1,7 +1,9 @@
 window.addEventListener('scroll', () => {
-    document.querySelectorAll('.reveal').forEach(el => {
-        let top = el.getBoundingClientRect().top;
-        let windowHeight = window.innerHeight;
+    const elements = document.querySelectorAll('.reveal');
+
+    elements.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
 
         if (top < windowHeight - 100) {
             el.classList.add('active');

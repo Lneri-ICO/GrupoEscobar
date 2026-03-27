@@ -185,17 +185,17 @@ footer {
 }
 
 
-/* SCROLL REVEAL */
+/* SCROLL REVEAL PRO */
 
 .reveal {
     opacity: 0;
-    transform: translateY(60px);
-    transition: all 1s ease;
+    transform: translateY(80px) scale(0.98);
+    transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .reveal.active {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
 }
 
 
